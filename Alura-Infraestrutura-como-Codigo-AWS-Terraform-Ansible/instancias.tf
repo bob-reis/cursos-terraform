@@ -3,11 +3,19 @@ resource "aws_instance" "server01" {
   instance_type = "t2.micro"
 
   key_name = "Bob"
+  /**
+  user_data = <<-EOF
+    #!/bin/bash
+    cd ~
+    echo "<html><h1>Teste inserido com Terraform de novo</h1></html>" > ~/index.html
+    nohup busybox httpd -f -p 8080 &
+    EOF
+   **/
 
   tags = merge(
     local.common_tags,
     {
-      Name = "Ubuntu de Teste"
+      Name = "Server com Python"
     }
   )
 }

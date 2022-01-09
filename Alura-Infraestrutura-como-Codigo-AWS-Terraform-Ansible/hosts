@@ -1,0 +1,2 @@
+[grupoteste]
+54.165.219.78 ansible_user=ubuntu ansible_ssh_private_key_file=./Bob.cer

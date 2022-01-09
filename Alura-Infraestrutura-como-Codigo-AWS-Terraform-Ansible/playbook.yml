@@ -1,0 +1,23 @@
+- hosts: grupoteste
+  tasks:
+    - name: Install do Python e virtualenv
+      apt:
+        pkg:
+        - python3
+        - virtualenv
+        update_cache: yes
+      become: yes
+    - name: Install das dependencias Django e Django Rest
+      pip:
+        virtualenv: /home/ubuntu/app/venv
+        name:
+          - django
+          - djangorestframework
+    - name: Iniciando o projeto
+      shell: '. /home/ubuntu/app/venv/bin/activate; django-admin startproject projetoapp /home/ubuntu/app/'
+    - name: Ajustando a permissao do hosts
+      lineinfile:
+        path: /home/ubuntu/app/setup/settings.py
+        regexp: 'ALLOWED_HOSTS'
+        line: 'ALLOWED_HOSTS = ["*"]'
+        backrefs: yes
