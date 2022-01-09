@@ -1,2 +1,2 @@
 [devs]
-44.201.199.59 ansible_user=ubuntu ansible_ssh_private_key_file=./Bob.cer
+44.201.199.59 ansible_user=ubuntu ansible_ssh_private_key_file=./Chave-Dev.cer
