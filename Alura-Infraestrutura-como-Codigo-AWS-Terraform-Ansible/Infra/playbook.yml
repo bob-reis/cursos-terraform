@@ -1,4 +1,4 @@
-- hosts: grupoteste
+- hosts: devs
   tasks:
     - name: Install do Python e virtualenv
       apt:
